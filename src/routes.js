@@ -18,16 +18,16 @@ import DashboardEmployee from "layouts/dashboard/DashboardEmployee";
 import ParkingTableList from "layouts/tables/ParkingTableList";
 // import Test from "components/Test";
 const routes = [
-  {
-    type: "collapse",
-    name: "Dashboard",
-    key: "dashboard",
-    icon: <Icon fontSize="small">dashboard</Icon>,
-    route: "/dashboard",
-    component: <DashboardAdmin />,
-    role: ["Admin"],
-    showInSideBar: true
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Dashboard",
+  //   key: "dashboard",
+  //   icon: <Icon fontSize="small">dashboard</Icon>,
+  //   route: "/dashboard",
+  //   component: <DashboardAdmin />,
+  //   role: ["Admin"],
+  //   showInSideBar: true
+  // },
   {
     type: "collapse",
     name: "Dashboard Vendor",
@@ -36,7 +36,7 @@ const routes = [
     route: "/dashboard-vendor",
     component: <DashboardVendor />,
     role: ["Admin"],
-    showInSideBar: false
+    showInSideBar: true
   },
   {
     type: "collapse",
@@ -78,16 +78,16 @@ const routes = [
     role: ["Admin"],
     showInSideBar: true
   },
-  {
-    type: "collapse",
-    name: "Vendors",
-    key: "Vendors",
-    icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/Vendors",
-    component: <VendorTables />,
-    role: ["Admin"],
-    showInSideBar: true
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Vendors",
+  //   key: "Vendors",
+  //   icon: <Icon fontSize="small">table_view</Icon>,
+  //   route: "/Vendors",
+  //   component: <VendorTables />,
+  //   role: ["Admin"],
+  //   showInSideBar: true
+  // },
   {
     type: "collapse",
     name: "Vehicles",

@@ -118,7 +118,7 @@ function Basic() {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://xkzd75f5kd.execute-api.ap-south-1.amazonaws.com/prod/login-service/verify-otp/admin',
+        'https://xkzd75f5kd.execute-api.ap-south-1.amazonaws.com/prod/login-service/verify-otp/vendor',
         {
           mobileNo: mobile,
           otp: OTP
@@ -127,7 +127,7 @@ function Basic() {
         if (res.data.status.code === 1001) {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("refresh_token", res.data.refreshToken);
-          localStorage.setItem("adminID", res.data.admin.adminID);
+          localStorage.setItem("vendorID", res.data.vendor.vendorID);
           Navigate("/dashboard");
         } else {
           Navigate("/authentication/sign-in");
@@ -136,11 +136,11 @@ function Basic() {
       });
     } catch (error) {
       console.error('Error:', error);
-      if (error.response && error.response.data && error.response.data.message === "No admin found in the system with this number.") {
+      if (error.response && error.response.data && error.response.data.message === "No vendor found in the system with this number.") {
         setErrorcheck(prevState => ({
           ...prevState,
           open: true,
-          message: "No admin found in the system with this number."
+          message: "No vendor found in the system with this number."
         }))
       } else if (error.response && error.response.data && error.response.data.message === "Invalid OTP.") {
         setErrorcheck(prevState => ({
@@ -154,7 +154,7 @@ function Basic() {
     }
   }
 
-  
+
   useEffect(() => {
     if (mobile.length == 10) {
       sendOTP();
@@ -209,7 +209,7 @@ function Basic() {
               <MDInput type="OTP" inputProps={{ maxLength: 4 }} label="OTP" fullWidth
                 onChange={(e) => { setOTP(e.target.value) }} />
             </MDBox>
-          
+
 
             <MDBox mt={4} mb={1}>
               <Button style={{ color: "#fff", background: "#0f7002", cursor: "pointer" }} fullWidth
